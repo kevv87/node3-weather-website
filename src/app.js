@@ -9,6 +9,8 @@ const publicDirPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
+const PORT = process.env.PORT || 3000 // Puerto de heroku o 3000
+
 app.use(express.static(publicDirPath))  // Se llama a static porque esos recursos no se actualizan
 
 /*  //No es necesario esto por el nombre especial index.html en public
@@ -98,6 +100,6 @@ app.get('*',(req,res)=>{ // * significa 'todo lo que no se haya enlistado anteri
   })
 })
 
-app.listen(3000, ()=>{  // Argumentos: puerto & what to do when started
-  console.log('Server up');
+app.listen(PORT, ()=>{  // Argumentos: puerto & what to do when started
+  console.log('Server up on '+ PORT);
 })
